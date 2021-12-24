@@ -1,0 +1,34 @@
+\begin{eqnarray*}
+  f(x) &\approx& \left( \sum_{i=0}^{m} p_i x^i \right) \bigg/ \left( \sum_{i=0}^{n} q_i x^i \right)
+\end{eqnarray*}
+
+\begin{eqnarray*}
+  [m, n] f(x) = P_{m}(x) / Q_{n}(x)
+\end{eqnarray*}
+
+\begin{eqnarray*}
+  f(x) = \sum_{i=0}^{\infty} a_i x^i = a_0 + a_1 x + a_2 x^2 + \cdots + a_{m+n} x^{m+n} + O(x^{m+n+1})
+\end{eqnarray*}
+
+\begin{eqnarray*}
+  && p_0 = a_0,~~ q_0 = 1 \\
+\end{eqnarray*}
+
+\begin{eqnarray*}
+  && p_k - \sum_{j=1}^{k} a_{k-j} q_{j} = a_k ~~~(k \geq 1)
+\end{eqnarray*}
+
+\begin{eqnarray*}
+  && A \bold{x} = \bold{a} \\
+  && A = \left[ \begin{matrix}
+    1 &          &        &        &  0       & -a_0       &        &        &        &  0     \\
+      & 1        &        &        &          & -a_1       & -a_0   &        &        &        \\
+      &          & \ddots &        &          & \vdots     & -a_1   & \ddots &        &        \\
+      &          &        &        & 1        & -a_{m-1}   & \vdots & \ddots & \ddots &        \\
+      &          &        &        &          & \vdots     &        &        & \ddots & -a_0   \\
+      &          & 0      &        &          & \vdots     &        &        &        & \vdots \\
+      &          &        &        &          & -a_{m+n-1} & \cdots &        & \cdots & -a_m   \\
+  \end{matrix} \right] \\
+  && \bold{x} = [p_1, p_2, \cdots , p_m, q_1, q_2, \cdots, q_n]^T \\
+  && \bold{a} = [a_1, a_2, \cdots , a_{m+n}]^T
+\end{eqnarray*}
