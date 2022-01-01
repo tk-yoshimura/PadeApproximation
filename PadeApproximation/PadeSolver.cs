@@ -1,4 +1,5 @@
 ﻿using MultiPrecision;
+using MultiPrecisionAlgebra;
 using System;
 using System.Linq;
 
@@ -17,14 +18,8 @@ namespace PadeApproximation {
 
             int k = m + n;
 
-            MultiPrecision<N>[,] a = new MultiPrecision<N>[k, k];
-            MultiPrecision<N>[] c = cs[1..];
-
-            for (int j = 0; j < k; j++) {
-                for (int i = 0; i < k; i++) {
-                    a[j, i] = 0;
-                }
-            }
+            Matrix<N> a = new Matrix<N>(k, k);
+            Vector<N> c = cs[1..];
 
             for (int i = 0; i < m; i++) {
                 a[i, i] = 1;
@@ -36,9 +31,9 @@ namespace PadeApproximation {
                 }
             }
 
-            MultiPrecision<N>[] v = Algabra<N>.Mul(Algabra<N>.Invert(a), c);
-            MultiPrecision<N>[] ms = new MultiPrecision<N>[] { cs[0] }.Concat(v[..m]).ToArray();
-            MultiPrecision<N>[] ns = new MultiPrecision<N>[] { 1 }.Concat(v[m..]).ToArray();
+            Vector<N> v = a.Inverse * c;
+            MultiPrecision<N>[] ms = new MultiPrecision<N>[] { cs[0] }.Concat(((MultiPrecision<N>[])v)[..m]).ToArray();
+            MultiPrecision<N>[] ns = new MultiPrecision<N>[] { 1 }.Concat(((MultiPrecision<N>[])v)[m..]).ToArray();
 
             return (ms, ns);
         }

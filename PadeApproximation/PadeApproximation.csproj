@@ -7,6 +7,7 @@
 
   <ItemGroup>
     <PackageReference Include="TYoshimura.MultiPrecision" Version="5.0.5" />
+    <PackageReference Include="TYoshimura.MultiPrecisionAlgebra" Version="1.0.0" />
   </ItemGroup>
 
 </Project>
