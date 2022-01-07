@@ -18,7 +18,7 @@ namespace PadeApproximation {
 
             int k = m + n;
 
-            Matrix<N> a = new Matrix<N>(k, k);
+            Matrix<N> a = new(k, k);
             Vector<N> c = cs[1..];
 
             for (int i = 0; i < m; i++) {
@@ -36,6 +36,21 @@ namespace PadeApproximation {
             MultiPrecision<N>[] ns = new MultiPrecision<N>[] { 1 }.Concat(((MultiPrecision<N>[])v)[m..]).ToArray();
 
             return (ms, ns);
+        }
+
+        public static MultiPrecision<N> Approx(MultiPrecision<N> a, MultiPrecision<N>[] ms, MultiPrecision<N>[] ns) {
+            MultiPrecision<N> p = ms[^1], q = ns[^1];
+
+            for (int i = ms.Length - 2; i >= 0; i--) {
+                p = p * a + ms[i];
+            }
+            for (int i = ns.Length - 2; i >= 0; i--) {
+                q = q * a + ns[i];
+            }
+
+            MultiPrecision<N> y = p / q;
+
+            return y;
         }
     }
 }
