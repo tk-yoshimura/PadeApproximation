@@ -24,3 +24,6 @@ Each coefficient is uniquely determined.
 It is equivalent to solving the following simultaneous equations.
 
 ![pade6](https://github.com/tk-yoshimura/PadeApproximation/blob/main/figures/pade6.svg)  
+
+## See Also
+[PadeInterpolation](https://github.com/tk-yoshimura/PadeInterpolation)
