@@ -25,5 +25,10 @@ It is equivalent to solving the following simultaneous equations.
 
 ![pade6](https://github.com/tk-yoshimura/PadeApproximation/blob/main/figures/pade6.svg)  
 
+## Implement
+See below for an example implementation.  
+Since this is a calculation that produces many digit loss, the double precision does not produce the expected results.  
+[MultiPrecisionCurveFitting](https://github.com/tk-yoshimura/MultiPrecisionCurveFitting)
+
 ## See Also
 [PadeInterpolation](https://github.com/tk-yoshimura/PadeInterpolation)
